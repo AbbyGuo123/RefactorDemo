@@ -42,4 +42,19 @@ public class CustomerTest {
     }
 
 
+    @Test
+    public void should_return_correct_statement_given_customer_new_release_movie_has_rent_one_rental_and_day_rented_1() {
+        Movie movie =new Movie("movie1Title",Movie.NEW_RELEASE);
+        Rental rental = new Rental(movie,1);
+        customer.addRental(rental);
+        String result = customer.statement();
+        assertThat(result,is("Rental Record for abby\n" +
+                "\tmovie1Title\t3.0\n" +
+                "Amount owed is3.0\n" +
+                "You earned1 frequent renter points"));
+    }
+
+
+
+
 }
