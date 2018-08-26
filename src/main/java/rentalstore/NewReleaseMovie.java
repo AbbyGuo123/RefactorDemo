@@ -1,10 +1,8 @@
 package rentalstore;
 
-public class NewReleaseMovie {
-    public NewReleaseMovie() {
-    }
+public class NewReleaseMovie extends MovieFactory{
 
-    public double getThisAmount(double thisAmount, Rental each){
+    protected double getThisAmount(double thisAmount, Rental each){
         thisAmount+=each.getDayRented()*3;
         return thisAmount;
     }
