@@ -24,7 +24,7 @@ public abstract class Statement {
         //add frequent renter points
         frequentRenterPoints ++;
         //add bonus for a two day new release rental
-        if((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1){
+        if((each.getMovie().getMovieFactory() instanceof NewReleaseMovie) && each.getDayRented() > 1){
             frequentRenterPoints ++;
         }
         return thisAmount;

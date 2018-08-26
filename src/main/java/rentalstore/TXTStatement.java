@@ -13,20 +13,29 @@ public class TXTStatement extends Statement{
             thisAmount = getThisAmount(thisAmount, each);
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += "\t"
+                    + each.getMovie().getTitle()
+                    + "\t" + String.valueOf(thisAmount)
+                    + "\n";
             totalAmount += thisAmount;
         }
         return result;
     }
 
     protected String getHeaderString(Customer customer) {
-        return "Rental Record for " + customer.getName() + "\n";
+        return "Rental Record for "
+                + customer.getName()
+                + "\n";
     }
 
     protected String getFooterString() {
         //add footer lines
-        String result = "Amount owed is" + String.valueOf(totalAmount) + "\n";
-        result += "You earned" + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        String result = "Amount owed is"
+                + String.valueOf(totalAmount)
+                + "\n"
+                + "You earned"
+                + String.valueOf(frequentRenterPoints)
+                + " frequent renter points";
         return result;
     }
 }

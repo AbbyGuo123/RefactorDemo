@@ -19,7 +19,7 @@ public class CustomerTest {
 
     @Test
     public void should_return_correct_statement_given_customer_regular_movie_has_rent_one_rental_and_day_rented_1() {
-        Movie movie =new Movie("movie1Title",Movie.REGULAR);
+        Movie movie =new Movie("movie1Title",new RegularMovie());
         Rental rental = new Rental(movie,1);
         customer.addRental(rental);
         String result = customer.TxtStatement();
@@ -31,7 +31,7 @@ public class CustomerTest {
 
     @Test
     public void should_return_correct_statement_given_customer_regular_movie_has_rent_one_rental_and_day_rented_3() {
-        Movie movie =new Movie("movie1Title",Movie.REGULAR);
+        Movie movie =new Movie("movie1Title",new RegularMovie());
         Rental rental = new Rental(movie,3);
         customer.addRental(rental);
         String result = customer.TxtStatement();
@@ -44,7 +44,7 @@ public class CustomerTest {
 
     @Test
     public void should_return_correct_statement_given_customer_new_release_movie_has_rent_one_rental_and_day_rented_1() {
-        Movie movie =new Movie("movie1Title",Movie.NEW_RELEASE);
+        Movie movie =new Movie("movie1Title",new NewReleaseMovie());
         Rental rental = new Rental(movie,1);
         customer.addRental(rental);
         String result = customer.TxtStatement();
@@ -56,7 +56,7 @@ public class CustomerTest {
 
     @Test
     public void should_return_correct_statement_given_customer_new_release_movie_has_rent_one_rental_and_day_rented_4() {
-        Movie movie =new Movie("movie1Title",Movie.NEW_RELEASE);
+        Movie movie =new Movie("movie1Title",new NewReleaseMovie());
         Rental rental = new Rental(movie,4);
         customer.addRental(rental);
         String result = customer.TxtStatement();
@@ -69,7 +69,7 @@ public class CustomerTest {
     @Test
     public void should_return_html_statement() {
 
-        Movie movie =new Movie("Roman Holiday",Movie.NEW_RELEASE);
+        Movie movie =new Movie("Roman Holiday",new NewReleaseMovie());
         Rental rental=new Rental(movie,1);
         customer.addRental(rental);
 
