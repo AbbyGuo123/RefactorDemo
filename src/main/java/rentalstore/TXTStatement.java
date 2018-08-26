@@ -2,19 +2,9 @@ package rentalstore;
 
 import java.util.Enumeration;
 
-public class TXTStatement {
-    double totalAmount = 0;
-    int frequentRenterPoints = 0;
+public class TXTStatement extends Statement{
 
-    public String statement(Customer customer){
-        Enumeration rentals = customer.getRentals().elements();
-        String result = getHeaderString(customer);
-        result +=getAllItemString(rentals);
-        result += getFooterString();
-        return result;
-    }
-
-    private String getAllItemString(Enumeration rentals) {
+    protected String getAllItemString(Enumeration rentals) {
         String result="";
         while(rentals.hasMoreElements()){
             double thisAmount =0;
@@ -52,11 +42,11 @@ public class TXTStatement {
         return result;
     }
 
-    private String getHeaderString(Customer customer) {
+    protected String getHeaderString(Customer customer) {
         return "Rental Record for " + customer.getName() + "\n";
     }
 
-    private String getFooterString() {
+    protected String getFooterString() {
         //add footer lines
         String result = "Amount owed is" + String.valueOf(totalAmount) + "\n";
         result += "You earned" + String.valueOf(frequentRenterPoints) + " frequent renter points";
