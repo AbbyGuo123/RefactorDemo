@@ -1,6 +1,5 @@
 package rentalstore;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 public class Customer {
@@ -19,7 +18,7 @@ public class Customer {
         return name;
     }
 
-    public String statement(){
+    public String TxtStatement(){
         TXTStatement txtStatement = new TXTStatement();
         return txtStatement.statement(this);
     }
@@ -27,18 +26,12 @@ public class Customer {
 
     public String htmlStatement(){
         HtmlStatement htmlStatement = new HtmlStatement();
-        return htmlStatement.htmlStatement(this);
+        return htmlStatement.statement(this);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Vector getRentals() {
         return rentals;
     }
 
-    public void setRentals(Vector rentals) {
-        this.rentals = rentals;
-    }
 }
