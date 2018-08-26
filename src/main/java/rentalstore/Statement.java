@@ -21,19 +21,16 @@ public abstract class Statement {
     protected double getThisAmount(double thisAmount, Rental each) {
         switch (each.getMovie().getPriceCode()){
             case Movie.REGULAR:
-                thisAmount += 2;
-                if(each.getDayRented() > 2){
-                    thisAmount+=(each.getDayRented() - 2) * 1.5;
-                }
-                break;
+               RegularMovie regularMovie = new RegularMovie();
+               thisAmount = regularMovie.getThisAmount(thisAmount,each);
+               break;
             case Movie.NEW_RELEASE:
-                thisAmount+=each.getDayRented()*3;
+                NewReleaseMovie newReleaseMovie = new NewReleaseMovie();
+                thisAmount = newReleaseMovie.getThisAmount(thisAmount,each);
                 break;
             case Movie.CHILDRENS:
-                thisAmount+=1.5;
-                if(each.getDayRented() > 3){
-                    thisAmount += (each.getDayRented() -3)*1.5;
-                }
+                ChildrenMovie childrenMovie = new ChildrenMovie();
+                thisAmount = childrenMovie.getThisAmount(thisAmount,each);
                 break;
         }
 
