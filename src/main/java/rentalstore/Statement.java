@@ -22,12 +22,10 @@ public abstract class Statement {
         thisAmount = each.getMovie().getMovieFactory().getThisAmount(thisAmount,each);
 
         //add frequent renter points
-        frequentRenterPoints ++;
-        //add bonus for a two day new release rental
-        if((each.getMovie().getMovieFactory() instanceof NewReleaseMovie) && each.getDayRented() > 1){
-            frequentRenterPoints ++;
-        }
+        frequentRenterPoints = each.getMovie().getMovieFactory().getFrequentRenterPoints(each);
         return thisAmount;
     }
+
+
 
 }
