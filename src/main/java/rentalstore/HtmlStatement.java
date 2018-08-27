@@ -27,12 +27,16 @@ public class HtmlStatement extends Statement{
 
 
     protected String getFooterString() {
+        String  frequentRenterPointsString = String.valueOf(frequentRenterPoints);
+        if(Math.round(frequentRenterPoints)-frequentRenterPoints==0){
+            frequentRenterPointsString=  String.valueOf((long)frequentRenterPoints);
+        }
         //add footer lines
         String result = "<P>You owe<EM>"
                 + String.valueOf(totalAmount)
                 + "</EM><P>\n"
                 + "On this rental you earned <EM>"
-                + String.valueOf(frequentRenterPoints)
+                + frequentRenterPointsString
                 + "</EM> frequent renter points<P>";
         return result;
     }

@@ -4,7 +4,7 @@ import java.util.Enumeration;
 
 public abstract class Statement {
     double totalAmount = 0;
-    int frequentRenterPoints = 0;
+    double frequentRenterPoints = 0;
 
     public String statement(Customer customer){
         Enumeration rentals = customer.getRentals().elements();
@@ -23,6 +23,7 @@ public abstract class Statement {
 
         //add frequent renter points
         frequentRenterPoints = each.getMovie().getMovieFactory().getFrequentRenterPoints(each);
+
         return thisAmount;
     }
 

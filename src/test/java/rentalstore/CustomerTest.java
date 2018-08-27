@@ -81,5 +81,16 @@ public class CustomerTest {
                 "On this rental you earned <EM>1</EM> frequent renter points<P>",result);
 
     }
+    @Test
+    public void should_return_correct_statement_given_customer_art_movie_has_rent_one_rental_and_day_rented_1() {
+        Movie movie =new Movie("movie1Title",new ArtMovie());
+        Rental rental = new Rental(movie,1);
+        customer.addRental(rental);
+        String result = customer.TxtStatement();
+        assertThat(result,is("Rental Record for abby\n" +
+                "\tmovie1Title\t6.0\n" +
+                "Amount owed is6.0\n" +
+                "You earned1.5 frequent renter points"));
+    }
 
 }

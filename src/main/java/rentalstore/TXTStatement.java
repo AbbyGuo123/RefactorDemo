@@ -29,12 +29,16 @@ public class TXTStatement extends Statement{
     }
 
     protected String getFooterString() {
+        String  frequentRenterPointsString = String.valueOf(frequentRenterPoints);
+        if(Math.round(frequentRenterPoints)-frequentRenterPoints==0){
+            frequentRenterPointsString=  String.valueOf((long)frequentRenterPoints);
+        }
         //add footer lines
         String result = "Amount owed is"
                 + String.valueOf(totalAmount)
                 + "\n"
                 + "You earned"
-                + String.valueOf(frequentRenterPoints)
+                + frequentRenterPointsString
                 + " frequent renter points";
         return result;
     }

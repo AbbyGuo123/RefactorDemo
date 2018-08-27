@@ -6,4 +6,13 @@ public class NewReleaseMovie extends MovieFactory{
         thisAmount+=each.getDayRented()*3;
         return thisAmount;
     }
+    protected double getFrequentRenterPoints(Rental each) {
+        frequentRenterPoints ++;
+        //add bonus for a two day new release rental
+        if(each.getDayRented() > 1){
+            frequentRenterPoints ++;
+        }
+        return frequentRenterPoints;
+    }
+
 }
